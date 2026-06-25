@@ -1,0 +1,13 @@
+services:
+  api:
+    build:
+      context: ./services/api
+      dockerfile: Dockerfile
+    image: invoice-parser-api
+    restart: unless-stopped
+    env_file:
+      - ./services/api/.env
+    environment:
+      PORT: 3000
+    ports:
+      - "3000:3000"

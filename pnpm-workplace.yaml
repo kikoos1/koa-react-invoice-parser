@@ -1,0 +1,14 @@
+packages:
+  - "apps/*"
+  - "services/*"
+  - "packages/*"
+
+injectWorkspacePackages: true
+
+catalog:
+  types-node: "24.13.0"
+
+overrides:
+  "@types/node": "24.13.0"
+
+allowBuilds:

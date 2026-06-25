@@ -1,0 +1,101 @@
+.invoice-details {
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--bg);
+  box-sizing: border-box;
+}
+
+.invoice-details__header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.invoice-details__title {
+  margin: 0;
+  margin-right: 4px;
+}
+
+.invoice-details__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  line-height: 1;
+  padding: 6px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.invoice-details__badge--currency {
+  color: #9a6b00;
+  background: rgba(255, 196, 0, 0.16);
+}
+
+.invoice-details__badge--rates {
+  color: var(--text-h);
+  background: var(--code-bg);
+}
+
+.invoice-details__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text);
+}
+
+.invoice-details__dot--live {
+  background: #1bbf6f;
+}
+
+.invoice-details__subtitle {
+  margin: 0 0 20px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.invoice-details__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.invoice-details__cell {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.invoice-details__cell--label {
+  text-align: left;
+  color: var(--text-h);
+}
+
+.invoice-details__cell--amount {
+  text-align: left;
+}
+
+thead .invoice-details__cell {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.invoice-details__cell--source {
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.invoice-details__row--total .invoice-details__cell {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.invoice-details__row--total .invoice-details__cell--source {
+  color: var(--accent);
+}
