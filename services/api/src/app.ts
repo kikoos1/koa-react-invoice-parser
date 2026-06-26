@@ -1,6 +1,5 @@
 import Koa from 'koa'
 import cors from '@koa/cors'
-import bodyParser from 'koa-bodyparser'
 import 'dotenv/config'
 import router from "./routes";
 import {errorMiddleware} from "./error";
@@ -17,7 +16,6 @@ const app = new Koa();
 
 app.use(errorMiddleware)
 app.use(cors())
-app.use(bodyParser())
 app.use(router.routes())
 app.use(router.allowedMethods());
 

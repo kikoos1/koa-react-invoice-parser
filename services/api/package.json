@@ -19,7 +19,6 @@
       "onFail": "download"
     }
   },
-  "type": "module",
   "dependencies": {
     "@koa/cors": "^5.0.0",
     "@koa/multer": "^4.0.0",
@@ -30,14 +29,13 @@
     "multer": "^2.2.0"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.105.0",
     "@types/koa": "^3.0.3",
-    "@types/koa-bodyparser": "^4.3.13",
     "@types/koa__cors": "^5.0.1",
     "@types/koa__router": "^12.0.5",
     "@types/multer": "^2.1.0",
     "@types/node": "^24.13.2",
     "tsx": "^4.22.4",
-    "typescript": "^6.0.3",
-    "@anthropic-ai/sdk": "^0.105.0"
+    "typescript": "^6.0.3"
   }
 }

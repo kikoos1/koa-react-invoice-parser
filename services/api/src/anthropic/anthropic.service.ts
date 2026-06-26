@@ -11,7 +11,7 @@ Extract the following and return ONLY valid JSON (no prose, no markdown):
 - lineItems: an array of objects, one per billable line on the invoice, each with:
     - description: the line item's text description, trimmed
     - amount: the line item's total price as a number in the source currency
-      (no currency symbol, no thousands separators, use a dot decimal separator)
+      (no currency symbol, no thousands separators, use a dot decimal separator. Convert comma decimals to dot decimals, e.g., "46,00" becomes 46.00).
 - total: the invoice grand total as a number in the source currency.
 
 Rules:
@@ -19,9 +19,8 @@ Rules:
 - Do NOT convert currencies. Report every amount in the source currency only.
 - Do NOT include tax/subtotal/shipping rows as line items unless they are themselves
   billable line items; capture tax/shipping in the grand total via "total".
-- If a value is missing or unreadable, use 0.
+- IMPORTANT FALLBACK: If the explicitly stated grand total or subtotal on the document is missing, empty, or "0.00" (but valid line items exist), calculate the total yourself by summing all the extracted line item amounts. Do not return 0 if there are billable items.
 - Numbers must be JSON numbers, not strings.`
-
 
 
 const INVOICE_SCHEMA: Anthropic.Tool.InputSchema = {

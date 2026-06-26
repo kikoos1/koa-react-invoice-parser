@@ -1,7 +1,6 @@
 packages:
   - "apps/*"
   - "services/*"
-  - "packages/*"
 
 injectWorkspacePackages: true
 
@@ -12,3 +11,4 @@ overrides:
   "@types/node": "24.13.0"
 
 allowBuilds:
+  esbuild: true

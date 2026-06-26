@@ -1,6 +1,9 @@
 import {Currency} from "./types";
 
-type ExchangeRateResponse = {
+type ExchangeRate = {
+    date: string;
+    base: Currency;
+    quote: Currency;
     rate: number;
 }
 
@@ -10,36 +13,24 @@ class CurrencyConverter {
     private readonly SUPPORTED_CURRENCIES = new Set<string>([Currency.GBP, Currency.USD, Currency.EUR]);
 
 
-    private async fetchExchangeRate(baseCurrency: Currency, currency: Currency): Promise<{
-        rate: number,
-        baseCurrency: Currency,
-        targetCurrency: Currency,
-    }> {
-        const response = await fetch(`${process.env.FRANKFURTER_API_URL}/rate/${baseCurrency}/${currency}`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch exchange rate: ${response.statusText}`);
+    async fetchRatesForCurrencies(baseCurrency: Currency, currencies: Currency[]): Promise<Map<Currency, number>> {
+        const exchangeRatesMap = new Map<Currency, number>();
+
+        if (currencies.length === 0) {
+            return exchangeRatesMap;
         }
 
-        const data = await response.json() as ExchangeRateResponse;
+        const quotes = currencies.join(',');
+        const response = await fetch(`${process.env.FRANKFURTER_API_URL}/rates?base=${baseCurrency}&quotes=${quotes}`);
 
-        return {
-            rate: data.rate,
-            baseCurrency,
-            targetCurrency: currency
+        if (!response.ok) {
+            throw new Error(`Failed to fetch exchange rates: ${response.statusText}`);
+        }
 
-        };
-    }
+        const exchangeRates = await response.json() as ExchangeRate[];
 
-
-    async fetchRatesForCurrencies(baseCurrency: Currency, currencies: Currency[]) {
-        const exchangeRateRequests = currencies.map(currency => this.fetchExchangeRate(baseCurrency, currency));
-
-        const exchangeRatesResults = await Promise.all(exchangeRateRequests)
-
-        const exchangeRatesMap = new Map<Currency, number>()
-
-        for (const exchangeRatesResult of exchangeRatesResults) {
-            exchangeRatesMap.set(exchangeRatesResult.targetCurrency, exchangeRatesResult.rate)
+        for (const exchangeRate of exchangeRates) {
+            exchangeRatesMap.set(exchangeRate.quote, exchangeRate.rate);
         }
 
         return exchangeRatesMap;
@@ -60,6 +51,3 @@ class CurrencyConverter {
 
 
 export default new CurrencyConverter();
-
-
-

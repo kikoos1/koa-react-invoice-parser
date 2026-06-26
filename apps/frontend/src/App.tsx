@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css'
 import FileUploader from './components/FileUploader/FileUploader.tsx'
 import InvoiceDetails from './components/InvoiceDetails/InvoiceDetails.tsx';
 import type { ParsedInvoice } from './types.ts';

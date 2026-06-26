@@ -1,5 +1,5 @@
 import Router from '@koa/router'
-import pdfUploader from "../pdfUploader/pdfUploader";
+import pdfUploader from "../pdf-uploader/pdf-uploader";
 import InvoiceParserController from "../invoice-parser/invoice-parser.controller";
 
 const router = new Router();

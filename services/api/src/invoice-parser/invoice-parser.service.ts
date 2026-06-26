@@ -27,7 +27,7 @@ class InvoiceParserService {
 
 
         if (!CurrencyConverter.getSupportedCurrencies().has(parsedInvoice.sourceCurrency)) {
-            throw new BadRequestException(`Currency ${parsedInvoice.sourceCurrency} is not supported`)
+            throw new BadRequestException(`Currency ${parsedInvoice.sourceCurrency} is not supported. Supported currencies are ${Array.from(CurrencyConverter.getSupportedCurrencies()).join(', ')}`)
         }
 
         if (parsedInvoice.lineItems.length === 0) {
