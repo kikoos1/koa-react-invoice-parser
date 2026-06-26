@@ -259,6 +259,9 @@ importers:
 
   services/api:
     dependencies:
+      '@anthropic-ai/sdk':
+        specifier: ^0.106.0
+        version: 0.106.0(zod@4.4.3)
       '@koa/cors':
         specifier: ^5.0.0
         version: 5.0.0
@@ -281,15 +284,18 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
     devDependencies:
-      '@anthropic-ai/sdk':
-        specifier: ^0.105.0
-        version: 0.105.0(zod@4.4.3)
       '@types/koa':
         specifier: ^3.0.3
         version: 3.0.3
+      '@types/koa-multer':
+        specifier: ^1.0.5
+        version: 1.0.5
       '@types/koa__cors':
         specifier: ^5.0.1
         version: 5.0.1
+      '@types/koa__multer':
+        specifier: ^2.0.8
+        version: 2.0.8
       '@types/koa__router':
         specifier: ^12.0.5
         version: 12.0.5
@@ -308,8 +314,8 @@ importers:
 
 packages:
 
-  '@anthropic-ai/sdk@0.105.0':
-    resolution: {integrity: sha512-sDyu+aM9cE6uZE+HgRjjHRb+qqb87GHZOx+8bE0YlWetdL1YcVLxn8h9ltxGOflyChTe6PMEo50kMQV4cw0hfg==}
+  '@anthropic-ai/sdk@0.106.0':
+    resolution: {integrity: sha512-ufwVvYNDBj2dzOGupBCTaNzBLxqcTnGOzI4z8Wouxlt+mT3J3HuOmatgCy1VmwCHOUueqZ41ERhm0O99OUcbWA==}
     hasBin: true
     peerDependencies:
       zod: ^3.25.0 || ^4.0.0
@@ -803,11 +809,17 @@ packages:
   '@types/koa-compose@3.2.9':
     resolution: {integrity: sha512-BroAZ9FTvPiCy0Pi8tjD1OfJ7bgU1gQf0eR6e1Vm+JJATy9eKOG3hQMFtMciMawiSOVnLMdmUOC46s7HBhSTsA==}
 
+  '@types/koa-multer@1.0.5':
+    resolution: {integrity: sha512-JO1XLKEFjicASMD2US/y3L7PjDofoEN0BlTLSyWKMvvUd+tjWukejhzz+k5uky3ByraZxJgSD4L3o3PUb36S7Q==}
+
   '@types/koa@3.0.3':
     resolution: {integrity: sha512-TdtNEJ7sYSrFQcVuS2ySsVqnq5EyE3oJbnfFJvkC9UtGP4Kpem5KE7r+ivHIbIAQAofSqnlB5D3vkfYO69TQpg==}
 
   '@types/koa__cors@5.0.1':
     resolution: {integrity: sha512-xZckuh3B6ycSBAIYnBImG1VDHyBNZsltGAuGb4THuZllccdLgD5DUs4RA7TAUjB58THg00SSZ1e//duQef7WRw==}
+
+  '@types/koa__multer@2.0.8':
+    resolution: {integrity: sha512-XkD9YzmGKzKfOkxwHepueQkP61okAeu6ibAieL4NSqwM1lyGOkgbT2XmP+xROd2agQVsewPqsFOsfgVmlEqJmg==}
 
   '@types/koa__router@12.0.5':
     resolution: {integrity: sha512-1HeLxuDn4n5it1yZYCSyOYXo++73zT0ffoviXnPxbwbxLbvDFEvWD9ZzpRiIpK4oKR0pi+K+Mk/ZjyROjW3HSw==}
@@ -1752,7 +1764,7 @@ packages:
 
 snapshots:
 
-  '@anthropic-ai/sdk@0.105.0(zod@4.4.3)':
+  '@anthropic-ai/sdk@0.106.0(zod@4.4.3)':
     dependencies:
       json-schema-to-ts: 3.1.1
       standardwebhooks: 1.0.0
@@ -2163,6 +2175,10 @@ snapshots:
     dependencies:
       '@types/koa': 3.0.3
 
+  '@types/koa-multer@1.0.5':
+    dependencies:
+      '@types/koa': 3.0.3
+
   '@types/koa@3.0.3':
     dependencies:
       '@types/accepts': 1.3.7
@@ -2175,6 +2191,10 @@ snapshots:
       '@types/node': 24.13.0
 
   '@types/koa__cors@5.0.1':
+    dependencies:
+      '@types/koa': 3.0.3
+
+  '@types/koa__multer@2.0.8':
     dependencies:
       '@types/koa': 3.0.3
 
