@@ -3,7 +3,7 @@ import './FileUploader.css';
 import type {ParsedInvoice} from "../../types.ts";
 import {uploadToApi} from "../../services/api.service.ts";
 
-export default function FileUploader({onUpload}: { onUpload: (invoice: ParsedInvoice) => void }) {
+export default function FileUploader({onUpload}: { onUpload: (invoice: ParsedInvoice|null) => void }) {
     const [status, setStatus] = useState<'idle' | 'uploading' | 'done' | 'error'>('idle');
     const [error, setError] = useState<string | null>(null);
     const [isDragging, setIsDragging] = useState(false);

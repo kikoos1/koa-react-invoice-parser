@@ -1,3 +1,4 @@
+import { BadRequestException } from "../error";
 import {Currency} from "./types";
 
 type ExchangeRate = {
@@ -24,7 +25,7 @@ class CurrencyConverter {
         const response = await fetch(`${process.env.FRANKFURTER_API_URL}/rates?base=${baseCurrency}&quotes=${quotes}`);
 
         if (!response.ok) {
-            throw new Error(`Failed to fetch exchange rates: ${response.statusText}`);
+            throw new BadRequestException(`Failed to fetch exchange rates: ${response.statusText}`);
         }
 
         const exchangeRates = await response.json() as ExchangeRate[];
